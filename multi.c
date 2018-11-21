@@ -11,15 +11,9 @@ int k;
 
 void display(int i)
 {
-    int m=k;
-    while(m--)
-    {
-        for(int l=B[k-m];l<T[k-m];l++)
-        {
-            printf("%d  ",stk[l]);
-        }
-        printf("\n");
-    }
+    for(int k=T[i];k>B[i];k--)
+        printf("%d ",stk[k]);
+    printf("\n");
 }
 
 
@@ -27,8 +21,11 @@ void push(int x, int i)
 {
     if(T[i]==B[i+1])
         printf("Stack Full\n");
-    T[i]++;
-    stk[T[i]]=x;
+    else
+    {
+        T[i]++;
+        stk[T[i]]=x;
+    }
     display(i);
 }
 
@@ -39,8 +36,10 @@ void pop(int i)
     if(T[i]==B[i])
         printf("Stack Empty\n");
     else
+    {
         x=stk[T[i]];
-    T[i]--;
+        T[i]--;
+    }
     display(i);
 } 
 
@@ -65,7 +64,7 @@ int main()
                 scanf("%d",&m);
                 push(x,m);
                 break;
-        case 2: printf("enter the stack from which you need to pop\n");
+        case 2: printf("Enter the stack from which you need to pop\n");
                 scanf("%d",&m);
                 pop(m);
                 break;

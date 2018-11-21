@@ -6,13 +6,22 @@ int stk[50];
 int max=50;
 int top=-1;
 int T[10],B[10];
+int k;
 
 
-void display()
+void display(int i)
 {
-
-
+    int m=k;
+    while(m--)
+    {
+        for(int l=B[k-m];l<T[k-m];l++)
+        {
+            printf("%d  ",stk[l]);
+        }
+        printf("\n");
+    }
 }
+
 
 void push(int x, int i)
 {
@@ -20,24 +29,32 @@ void push(int x, int i)
         printf("Stack Full\n");
     T[i]++;
     stk[T[i]]=x;
-    display();
+    display(i);
 }
 
 
 void pop(int i)
 {
-
+    int x;
+    if(T[i]==B[i])
+        printf("Stack Empty\n");
+    else
+        x=stk[T[i]];
+    T[i]--;
+    display(i);
 } 
 
 
 int main()
 {
-    int k,n,c,x,m,i;
+    int n,c,x,m,i;
     printf("Enter the number of stacks you need to implement\n");
     scanf("%d",&k);
     n=max/k;
     for(int i=0;i<k;i++)
         B[i]=T[i]=n*(i-1);
+    while(1)
+    {
     printf("Enter\n    1:PUSH\n    2:POP\n");
     scanf("%d",&c);
     switch(c)
@@ -52,6 +69,7 @@ int main()
                 scanf("%d",&m);
                 pop(m);
                 break;
+    }
     }
     return 0;
 }

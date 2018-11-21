@@ -54,10 +54,10 @@ int main()
         B[i]=T[i]=n*(i-1);
     while(1)
     {
-    printf("Enter\n    1:PUSH\n    2:POP\n");
-    scanf("%d",&c);
-    switch(c)
-    {
+        printf("Enter\n    1:PUSH\n    2:POP\n");
+        scanf("%d",&c);
+        switch(c)
+        {
         case 1: printf("Enter the element to be pushed\n");
                 scanf("%d",&x);
                 printf("Enter the stack to which you need to push\n");
@@ -68,7 +68,7 @@ int main()
                 scanf("%d",&m);
                 pop(m);
                 break;
-    }
+        }
     }
     return 0;
 }
